@@ -4,12 +4,16 @@ declare( strict_types=1 );
 
 namespace ForgeBench\InductionRecords\Account;
 
+use ForgeBench\InductionRecords\Plugin;
+
 /**
  * [induction_records] shortcode for sites without WooCommerce.
  */
 final class Shortcode {
 
 	public const TAG = 'induction_records';
+
+	public const STYLE = 'induction-records-member';
 
 	public function __construct(
 		private readonly MemberPage $page
@@ -30,6 +34,11 @@ final class Shortcode {
 				esc_url( wp_login_url( $permalink ) ),
 				esc_html__( 'Log in', 'induction-records' )
 			);
+		}
+
+		// WooCommerce styles the shared markup itself; without it the page brings its own small stylesheet.
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			wp_enqueue_style( self::STYLE, plugins_url( 'assets/member-page.css', dirname( __DIR__, 2 ) . '/induction-records.php' ), array(), Plugin::VERSION );
 		}
 
 		return $this->page->render( get_current_user_id(), $permalink );

@@ -1,0 +1,59 @@
+/*
+ * Member inductions page rendered by the [induction_records] shortcode on sites
+ * without WooCommerce. Colours are left to the theme; only spacing, borders and
+ * table layout are set here.
+ */
+
+.induction-records__notice {
+	margin: 0 0 1.5em;
+	padding: 0.75em 1em;
+	border-inline-start: 4px solid #2e7d32;
+	background: rgba(46, 125, 50, 0.08);
+}
+
+.induction-records__notice.woocommerce-error {
+	border-inline-start-color: #c62828;
+	background: rgba(198, 40, 40, 0.08);
+}
+
+.induction-records__pending {
+	margin: 1em 0 2em;
+	padding: 1em 1.25em;
+	border: 1px solid rgba(127, 127, 127, 0.35);
+	border-radius: 6px;
+}
+
+.induction-records__pending h4 {
+	margin: 0 0 0.5em;
+}
+
+.induction-records details > summary {
+	cursor: pointer;
+}
+
+.induction-records__briefing {
+	margin: 0.75em 0;
+	padding-inline-start: 1em;
+	border-inline-start: 3px solid rgba(127, 127, 127, 0.35);
+}
+
+.induction-records input[type="checkbox"] {
+	width: 1.1em;
+	height: 1.1em;
+	vertical-align: middle;
+}
+
+.induction-records__table {
+	width: 100%;
+	margin: 0.5em 0 1.5em;
+	border-collapse: collapse;
+	font-size: 0.9em;
+}
+
+.induction-records__table th,
+.induction-records__table td {
+	padding: 0.5em 0.75em;
+	border-bottom: 1px solid rgba(127, 127, 127, 0.35);
+	text-align: start;
+	vertical-align: top;
+}

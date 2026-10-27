@@ -12,7 +12,7 @@ Inductions used to be paper forms in a binder. When the laser cutter briefing ch
 - **Two-step sign-off**: a supervisor records the induction (Inductions > Record induction); the member reads the briefing and confirms it on their inductions page.
 - **Certificates**: confirming renders the certificate text from a merge-field template, stores the SHA-256 of that exact text, builds an A4 PDF with dompdf (embedded DejaVu Sans, makerspace header, footer with certificate number and hash, the briefing reproduced on the following pages), archives it and emails it to the member.
 - **Re-induction**: publishing a new major version flags every existing induction on that machine; minor versions keep them valid.
-- **Member page**: an "Inductions" tab in WooCommerce My Account, or the `[induction_records]` shortcode on sites without WooCommerce. It lists inductions waiting for confirmation, current inductions, machines that need re-induction (with the change note) and earlier records, each with a download link.
+- **Member page**: an "Inductions" tab in WooCommerce My Account, or the `[induction_records]` shortcode on sites without WooCommerce, where it loads a small stylesheet of its own. It lists inductions waiting for confirmation, current inductions, machines that need re-induction (with the change note) and earlier records, each with a download link.
 - **WooCommerce Subscriptions gate** (optional): when Subscriptions is active, only members with an active subscription can be inducted.
 - **Admin**: sign-off list filterable by machine and status, record-induction form, publish-version screen, "resend to member" action, settings.
 - **WP-CLI import** of paper records, idempotent, with a dry run.

@@ -60,7 +60,7 @@ defined( 'ABSPATH' ) || exit;
 							<?php esc_html_e( 'I received this safety briefing from the supervisor named above and I understood it.', 'induction-records' ); ?>
 						</label>
 					</p>
-					<p><button type="submit" class="button"><?php esc_html_e( 'Confirm induction', 'induction-records' ); ?></button></p>
+					<p><button type="submit" class="button wp-element-button"><?php esc_html_e( 'Confirm induction', 'induction-records' ); ?></button></p>
 				</form>
 			</section>
 		<?php endforeach; ?>
