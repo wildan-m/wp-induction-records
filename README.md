@@ -2,6 +2,12 @@
 
 WordPress plugin that Forge & Bench Makerspace uses to run machine safety inductions: versioned safety briefings, inductions recorded by a supervisor and confirmed by the member, PDF induction certificates, and a private certificate archive for every member.
 
+## Walkthrough
+
+![Walkthrough of Induction Records: a major briefing version flags earlier inductions, a supervisor records a new induction and the member confirms it and receives the certificate PDF](docs/induction-records-walkthrough.gif)
+
+The recording shows the machine briefings, version 2.0 of the laser cutter briefing published as a major change and the inductions it flags for re-induction, a supervisor recording a new induction, the paper records imported with WP-CLI, the certificate template, a supervisor being refused their own induction, and the member reading the new briefing, confirming it and opening the certificate PDF.
+
 ## The problem it solves
 
 Inductions used to be paper forms in a binder. When the laser cutter briefing changed after an extraction fault, nobody could say who had been briefed on the old procedure, and members who lost their form had no way to show they had been inducted. The plugin keeps every briefing version, ties each induction to the exact version the member was briefed on, flags who needs re-induction when the safety content changes, and gives every member a certificate they can download at any time.
