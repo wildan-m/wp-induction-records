@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<ruleset name="Induction Records">
+	<description>WordPress coding standards for the Induction Records plugin.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg name="parallel" value="8"/>
+	<arg value="sp"/>
+
+	<config name="minimum_wp_version" value="6.4"/>
+
+	<rule ref="WordPress-Extra">
+		<!-- Classes follow PSR-4 file names (src/Briefing/VersionNumber.php). -->
+		<exclude name="WordPress.Files.FileName"/>
+		<!-- Exception messages are never printed raw; they are escaped where they are shown. -->
+		<exclude name="WordPress.Security.EscapeOutput.ExceptionNotEscaped"/>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="induction-records"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="induction_records"/>
+				<element value="ForgeBench\InductionRecords"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.Capabilities">
+		<properties>
+			<property name="custom_capabilities" type="array">
+				<element value="manage_inductions"/>
+				<element value="record_inductions"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!--
+	These classes are deliberately independent of WordPress so they can be unit
+	tested and reused by WP-CLI; they use PHP's own file functions.
+	-->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<exclude-pattern>/src/Archive/ArchiveStorage\.php</exclude-pattern>
+		<exclude-pattern>/src/Import/LegacyCsvReader\.php</exclude-pattern>
+		<exclude-pattern>/src/Import/ScanLocator\.php</exclude-pattern>
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+</ruleset>

@@ -1,0 +1,47 @@
+{
+    "name": "forgebench/induction-records",
+    "description": "Versioned machine safety briefings, supervisor-recorded inductions with member sign-off, certificate PDFs and a protected per-member archive for WordPress.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Forge & Bench Makerspace"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-dom": "*",
+        "ext-mbstring": "*",
+        "dompdf/dompdf": "^3.1"
+    },
+    "require-dev": {
+        "brain/monkey": "^2.6",
+        "php-stubs/wp-cli-stubs": "^2.11",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^10.5 || ^11.5",
+        "szepeviktor/phpstan-wordpress": "^2.0",
+        "wp-coding-standards/wpcs": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ForgeBench\\InductionRecords\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ForgeBench\\InductionRecords\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "analyse": "phpstan analyse --memory-limit=1G"
+    }
+}
