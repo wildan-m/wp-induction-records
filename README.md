@@ -163,4 +163,4 @@ Deleting the plugin keeps every table, option, briefing and certificate file, be
 
 ## License
 
-GPL-2.0-or-later
+Proprietary. Copyright (c) 2026 Wildan Muhlis, all rights reserved. The repository is public so the code can be read; using, copying or distributing it needs written permission. See [LICENSE](LICENSE).

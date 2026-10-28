@@ -2,7 +2,7 @@
     "name": "forgebench/induction-records",
     "description": "Versioned machine safety briefings, supervisor-recorded inductions with member sign-off, certificate PDFs and a protected per-member archive for WordPress.",
     "type": "wordpress-plugin",
-    "license": "GPL-2.0-or-later",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Forge & Bench Makerspace"
