@@ -13,7 +13,7 @@ final class ImportReportTest extends TestCase {
 		$report = new ImportReport( true );
 		$report->created( 2, 'FB-2019-001', 'laser-cutter 1.0, confirmed' );
 		$report->skipped( 3, 'FB-2019-002', 'already imported as IR-000007' );
-		$report->error( 4, 'FB-2020-003', 'no user account for member tomas.weller@forgebench.test' );
+		$report->error( 4, 'FB-2020-003', 'no user account for member member3@forgebench.test' );
 
 		$this->assertSame( array( 'would-create', 'would-skip', 'error' ), array_column( $report->rows(), 'result' ) );
 		$this->assertSame( 'Dry run: 1 would be created, 1 would be skipped, 1 with errors. Nothing was written.', $report->summary() );

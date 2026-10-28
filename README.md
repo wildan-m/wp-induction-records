@@ -106,7 +106,7 @@ $ wp induction-records import paper-inductions.csv --files=scans --dry-run
 +-----+-------------+--------------+----------------------------------------------------+
 | 2   | FB-2019-001 | would-create | laser-cutter 1.0, reinduction_required             |
 | 3   | FB-2019-002 | would-skip   | already imported as IR-000014                      |
-| 4   | FB-2020-003 | error        | no user account for member r.ashby@forgebench.test |
+| 4   | FB-2020-003 | error        | no user account for member member9@forgebench.test |
 +-----+-------------+--------------+----------------------------------------------------+
 Warning: Dry run: 1 would be created, 1 would be skipped, 1 with errors. Nothing was written.
 ```

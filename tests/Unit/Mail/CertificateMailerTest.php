@@ -23,8 +23,8 @@ final class CertificateMailerTest extends TestCase {
 	private static function message( string $pdf_path = '/srv/uploads/induction-records/3f2a/9c1d.pdf' ): MemberMessage {
 		return new MemberMessage(
 			42,
-			'robin.ashby@forgebench.test',
-			'Robin Ashby',
+			'member1@forgebench.test',
+			'Test Member 1',
 			'Laser cutter',
 			'2.1',
 			self::PAGE_URL,
@@ -38,9 +38,9 @@ final class CertificateMailerTest extends TestCase {
 		Functions\expect( 'wp_mail' )
 			->once()
 			->with(
-				'robin.ashby@forgebench.test',
+				'member1@forgebench.test',
 				'Your Laser cutter induction certificate (IR-000042)',
-				Mockery::on( static fn( string $body ): bool => str_starts_with( $body, 'Hi Robin Ashby,' ) && str_contains( $body, self::PAGE_URL ) ),
+				Mockery::on( static fn( string $body ): bool => str_starts_with( $body, 'Hi Test Member 1,' ) && str_contains( $body, self::PAGE_URL ) ),
 				array(),
 				array( 'induction-certificate-IR-000042.pdf' => '/srv/uploads/induction-records/3f2a/9c1d.pdf' )
 			)
@@ -67,7 +67,7 @@ final class CertificateMailerTest extends TestCase {
 
 		Functions\expect( 'wp_mail' )
 			->once()
-			->with( 'robin.ashby@forgebench.test', 'Laser cutter certificate', 'Body from the theme', array( 'Reply-To: inductions@forgebench.test' ), Mockery::type( 'array' ) )
+			->with( 'member1@forgebench.test', 'Laser cutter certificate', 'Body from the theme', array( 'Reply-To: inductions@forgebench.test' ), Mockery::type( 'array' ) )
 			->andReturn( true );
 
 		$this->assertTrue( ( new CertificateMailer() )->send_certificate( $message ) );
@@ -92,7 +92,7 @@ final class CertificateMailerTest extends TestCase {
 		Functions\expect( 'wp_mail' )
 			->once()
 			->with(
-				'robin.ashby@forgebench.test',
+				'member1@forgebench.test',
 				'Please confirm your Laser cutter induction',
 				Mockery::on( static fn( string $body ): bool => str_contains( $body, 'briefing version 2.1' ) && str_contains( $body, self::PAGE_URL ) ),
 				array()

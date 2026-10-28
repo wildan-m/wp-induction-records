@@ -34,10 +34,10 @@ final class LegacyRowParserTest extends TestCase {
 		$values = array_merge(
 			array(
 				'legacy_ref'       => 'FB-2019-001',
-				'member_email'     => 'robin.ashby@forgebench.test',
+				'member_email'     => 'member1@forgebench.test',
 				'machine_slug'     => 'laser-cutter',
 				'inducted_on'      => '2019-03-02',
-				'supervisor_email' => 'maria.okafor@forgebench.test',
+				'supervisor_email' => 'supervisor1@forgebench.test',
 				'scan_filename'    => 'FB-2019-001.pdf',
 			),
 			$changes
@@ -50,7 +50,7 @@ final class LegacyRowParserTest extends TestCase {
 		$record = $this->parser()->parse(
 			self::row(
 				array(
-					'member_email' => ' Robin.Ashby@ForgeBench.test ',
+					'member_email' => ' Member1@ForgeBench.test ',
 					'machine_slug' => 'Laser-Cutter',
 				)
 			),
@@ -59,10 +59,10 @@ final class LegacyRowParserTest extends TestCase {
 
 		$this->assertSame( 2, $record->row );
 		$this->assertSame( 'FB-2019-001', $record->legacy_ref );
-		$this->assertSame( 'robin.ashby@forgebench.test', $record->member_email );
+		$this->assertSame( 'member1@forgebench.test', $record->member_email );
 		$this->assertSame( 'laser-cutter', $record->machine_slug );
 		$this->assertSame( '2019-03-02 00:00:00 Europe/London', $record->inducted_on->format( 'Y-m-d H:i:s e' ) );
-		$this->assertSame( 'maria.okafor@forgebench.test', $record->supervisor_email );
+		$this->assertSame( 'supervisor1@forgebench.test', $record->supervisor_email );
 		$this->assertSame( 'FB-2019-001.pdf', $record->scan_filename );
 	}
 
@@ -118,7 +118,7 @@ final class LegacyRowParserTest extends TestCase {
 		$parser->read_header( array( "\xEF\xBB\xBFScan_Filename", 'notes', 'LEGACY_REF', 'member_email', 'machine_slug', 'inducted_on', 'supervisor_email' ) );
 
 		$record = $parser->parse(
-			array( 'P-7.pdf', 'signed in red ink', 'P-7', 'tomas.weller@forgebench.test', 'wood-lathe', '2020-01-15', 'dev.patel@forgebench.test' ),
+			array( 'P-7.pdf', 'signed in red ink', 'P-7', 'member3@forgebench.test', 'wood-lathe', '2020-01-15', 'supervisor2@forgebench.test' ),
 			2
 		);
 
@@ -264,7 +264,7 @@ final class LegacyRowParserTest extends TestCase {
 		$this->assertStringContainsString( 'member_email "not-an-email" is not a valid email address', $invalid[6] );
 		$this->assertStringContainsString( 'inducted_on "31/02/2020" is not a valid date', $invalid[6] );
 		$this->assertStringContainsString( 'legacy_ref "FB-2019-001" already appears on row 2', $invalid[7] );
-		$this->assertStringContainsString( 'member_email "Ashby, Robin" is not a valid email address', $invalid[8] );
+		$this->assertStringContainsString( 'member_email "Member 1, Test" is not a valid email address', $invalid[8] );
 		$this->assertStringContainsString( 'scan_filename "../FB-2021-005.pdf" must be a plain file name', $invalid[8] );
 	}
 

@@ -15,7 +15,7 @@ final class LegacyCsvReaderTest extends TestCase {
 
 		$this->assertSame( array( 1, 2, 3, 5, 6, 7, 8 ), array_keys( $rows ) );
 		$this->assertSame( 'legacy_ref', $rows[1][0] );
-		$this->assertSame( 'Ashby, Robin', $rows[8][1] );
+		$this->assertSame( 'Member 1, Test', $rows[8][1] );
 	}
 
 	public function test_reads_quoted_values_with_quotes_and_line_breaks(): void {

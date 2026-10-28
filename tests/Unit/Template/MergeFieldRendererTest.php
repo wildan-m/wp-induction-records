@@ -16,7 +16,7 @@ final class MergeFieldRendererTest extends TestCase {
 	 */
 	private static function context(): array {
 		return array(
-			'member'      => array( 'display_name' => 'Robin Ashby' ),
+			'member'      => array( 'display_name' => 'Test Member 1' ),
 			'machine'     => array(
 				'name' => 'Laser cutter',
 				'slug' => 'laser-cutter',
@@ -32,20 +32,20 @@ final class MergeFieldRendererTest extends TestCase {
 			self::context()
 		);
 
-		$this->assertSame( '<p>Robin Ashby on the Laser cutter, version 2.1</p>', $result->output );
+		$this->assertSame( '<p>Test Member 1 on the Laser cutter, version 2.1</p>', $result->output );
 		$this->assertTrue( $result->is_complete() );
 	}
 
 	public function test_accepts_flat_keys_with_dots(): void {
-		$result = ( new MergeFieldRenderer() )->render( '{{member.display_name}}', array( 'member.display_name' => 'Priya Nair' ) );
+		$result = ( new MergeFieldRenderer() )->render( '{{member.display_name}}', array( 'member.display_name' => 'Test Member 2' ) );
 
-		$this->assertSame( 'Priya Nair', $result->output );
+		$this->assertSame( 'Test Member 2', $result->output );
 	}
 
 	public function test_allows_spaces_and_any_letter_case_inside_the_braces(): void {
 		$result = ( new MergeFieldRenderer() )->render( '{{ Member.Display_Name }} / {{ machine.name | upper }}', self::context() );
 
-		$this->assertSame( 'Robin Ashby / LASER CUTTER', $result->output );
+		$this->assertSame( 'Test Member 1 / LASER CUTTER', $result->output );
 	}
 
 	public function test_escapes_values_but_not_the_template(): void {
@@ -62,7 +62,7 @@ final class MergeFieldRendererTest extends TestCase {
 			self::context()
 		);
 
-		$this->assertSame( '{{member.shoe_size}} Robin Ashby {{machine.colour}} {{member.shoe_size}}', $result->output );
+		$this->assertSame( '{{member.shoe_size}} Test Member 1 {{machine.colour}} {{member.shoe_size}}', $result->output );
 		$this->assertSame( array( 'member.shoe_size', 'machine.colour' ), $result->unknown_fields );
 		$this->assertFalse( $result->is_complete() );
 	}
@@ -159,6 +159,6 @@ final class MergeFieldRendererTest extends TestCase {
 	public function test_hash_is_sha256_of_the_exact_output(): void {
 		$result = ( new MergeFieldRenderer() )->render( '<p>{{member.display_name}}</p>', self::context() );
 
-		$this->assertSame( hash( 'sha256', '<p>Robin Ashby</p>' ), $result->sha256() );
+		$this->assertSame( hash( 'sha256', '<p>Test Member 1</p>' ), $result->sha256() );
 	}
 }

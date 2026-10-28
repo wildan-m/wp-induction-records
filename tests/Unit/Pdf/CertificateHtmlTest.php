@@ -15,7 +15,7 @@ final class CertificateHtmlTest extends TestCase {
 			'Forge & Bench Makerspace',
 			'IR-000042',
 			'Induction certificate',
-			'<h1>Certificate of machine induction</h1><p>Robin Ashby</p>',
+			'<h1>Certificate of machine induction</h1><p>Test Member 1</p>',
 			str_repeat( 'c', 64 ),
 			'Safety briefing: Laser cutter, version 2.1',
 			'<p>Stay with the laser while it cuts.</p>'
@@ -33,7 +33,7 @@ final class CertificateHtmlTest extends TestCase {
 	public function test_certificate_text_and_briefing_are_inserted_as_html(): void {
 		$html = ( new CertificateHtml() )->build( self::data() );
 
-		$this->assertStringContainsString( '<div class="certificate"><h1>Certificate of machine induction</h1><p>Robin Ashby</p></div>', $html );
+		$this->assertStringContainsString( '<div class="certificate"><h1>Certificate of machine induction</h1><p>Test Member 1</p></div>', $html );
 		$this->assertStringContainsString( '<div class="appendix"><h2>Safety briefing: Laser cutter, version 2.1</h2><p>Stay with the laser while it cuts.</p></div>', $html );
 	}
 

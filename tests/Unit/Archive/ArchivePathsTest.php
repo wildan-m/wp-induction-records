@@ -65,10 +65,10 @@ final class ArchivePathsTest extends TestCase {
 	 */
 	public static function members(): array {
 		return array(
-			'Robin' => array( 42, 'robin.ashby@forgebench.test', 'Robin Ashby' ),
-			'Priya' => array( 7, 'priya.nair@forgebench.test', 'Priya Nair' ),
-			'Tomas' => array( 1, 'tomas.weller@forgebench.test', 'Tomas Weller' ),
-			'Maria' => array( 1009, 'maria.okafor@forgebench.test', 'Maria Okafor' ),
+			'member 1'     => array( 42, 'member1@forgebench.test', 'Test Member One' ),
+			'member 2'     => array( 7, 'member2@forgebench.test', 'Test Member Two' ),
+			'member 3'     => array( 1, 'member3@forgebench.test', 'Test Member Three' ),
+			'supervisor 1' => array( 1009, 'supervisor1@forgebench.test', 'Test Supervisor One' ),
 		);
 	}
 
@@ -117,7 +117,7 @@ final class ArchivePathsTest extends TestCase {
 			'upper case'        => array( strtoupper( $folder ) . '/' . $file . '.pdf' ),
 			'other extension'   => array( $folder . '/' . $file . '.php' ),
 			'trailing new line' => array( $folder . '/' . $file . ".pdf\n" ),
-			'readable names'    => array( 'robin-ashby/certificate.pdf' ),
+			'readable names'    => array( 'test-member-1/certificate.pdf' ),
 			'empty'             => array( '' ),
 		);
 	}

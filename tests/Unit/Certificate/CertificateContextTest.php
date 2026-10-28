@@ -25,8 +25,8 @@ final class CertificateContextTest extends TestCase {
 			self::signoff( 42, 5, SignOffStatus::Pending ),
 			self::version( 5, 3, '2.1', 'Laser cutter' ),
 			'laser-cutter',
-			'Robin Ashby',
-			'Maria Okafor',
+			'Test Member 1',
+			'Test Supervisor 1',
 			new DateTimeImmutable( '2024-02-02 09:00:00', new DateTimeZone( 'UTC' ) )
 		);
 
@@ -35,7 +35,7 @@ final class CertificateContextTest extends TestCase {
 		$this->assertTrue( $result->is_complete() );
 		$this->assertStringContainsString( 'IR-000042', $result->output );
 		$this->assertStringContainsString( 'Forge &amp; Bench Makerspace', $result->output );
-		$this->assertStringContainsString( 'Maria Okafor', $result->output );
+		$this->assertStringContainsString( 'Test Supervisor 1', $result->output );
 	}
 
 	public function test_every_listed_field_has_a_preview_value(): void {
